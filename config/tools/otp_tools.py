@@ -2,7 +2,7 @@ import requests
 
 import config.settings
 
-apiKey = config.settings.sms_api_token
+apiKey = config.settings.SMS_API_TOKEN
 
 
 def send_otp(template_name: str, otp_code, receiver_phone):

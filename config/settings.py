@@ -1,7 +1,10 @@
 from datetime import timedelta
 from pathlib import Path
-from os import environ
+import os
 import drf_spectacular
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -12,10 +15,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG') == 'True'
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,13 +132,13 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
-DRF_RECAPTCHA_SECRET_KEY = environ.get('DRF_RECAPTCHA_SECRET_KEY')
+DRF_RECAPTCHA_SECRET_KEY = os.environ.get('DRF_RECAPTCHA_SECRET_KEY')
 # DRF_RECAPTCHA_VERIFY_ENDPOINT = "https://www.google.com/recaptcha/api/siteverify" #  Default is GoogleRecaptcha
 # DRF_RECAPTCHA_VERIFY_ENDPOINT = "https://www.recaptcha.net/recaptcha/api/siteverify"
 
 #  google Recaptcha
-RECAPTCHA_PUBLIC_KEY = environ.get('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_PRIVATE_KEY = environ.get('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 
 
 # Internationalization
@@ -173,7 +176,7 @@ OTP_EXPIRE_TIME = 5
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 # sms API token
-SMS_API_TOKEN = environ.get('SMS_API_TOKEN')
+SMS_API_TOKEN = os.environ.get('SMS_API_TOKEN')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
